@@ -1,1 +1,40 @@
+public class Main {  
+    public static void main(String[] args) {  
+        Employee emp = new Employee("TEJESH", 21, "Male", 101, "IT");  
+        emp.displayInfo();  
+    }  
+}  
+
+class Person {  
+    String name;  
+    int age;  
+    String gender;  
+
+    public Person(String name, int age, String gender) {  
+        this.name = name;  
+        this.age = age;  
+        this.gender = gender;  
+    }  
+
+    public void displayInfo() {  
+        System.out.println("Name: " + name + ", Age: " + age + ", Gender: " + gender);  
+    }  
+}  
+
+class Employee extends Person {  
+    int employeeID;  
+    String department;  
+
+    public Employee(String name, int age, String gender, int employeeID, String department) {  
+        super(name, age, gender);  
+        this.employeeID = employeeID;  
+        this.department = department;  
+    }  
+
+    @Override  
+    public void displayInfo() {  
+        super.displayInfo();  
+        System.out.println("Employee ID: " + employeeID + ", Department: " + department);  
+    }  
+}  
 
