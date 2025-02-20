@@ -1,0 +1,30 @@
+import java.io.*;
+
+public class FileHandling {
+    public static void main(String[] args) {
+        // Simulated file storage using ByteArrayOutputStream
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintWriter writer = new PrintWriter(outputStream);
+
+        // Writing to the simulated file
+        writer.println("Hello, this is a sample text file.");
+        writer.println("Welcome to Java File Handling!");
+        writer.flush();  // Ensure all data is written
+        System.out.println("File written successfully.\n");
+
+        // Convert output stream to input stream for reading
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+        // Reading from the simulated file
+        System.out.println("Reading File Contents:");
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading simulated file: " + e.getMessage());
+        }
+    }
+}
